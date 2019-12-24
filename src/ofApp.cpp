@@ -20,10 +20,10 @@ void ofApp::setup(){
   // print received messages to the console
   midiIn.setVerbose(true);
   
-  ofBackground(1);
+  ofBackground(10);
   
 
-  for(MidiDataModel data : knobsData.knobsData){
+  for(MidiDataModel data : knobsData.data){
     MidiSgnl newMidi = MidiSgnl(data.order, data.label, data.channel, data.control);
     knobs.push_back(newMidi);
   }
@@ -64,25 +64,26 @@ void ofApp::newMidiMessage(ofxMidiMessage &msg) {
   if(knobs.size() > 0)
     for(MidiSgnl k : knobs)
       if(msg.channel == k.channel && msg.control == k.control) {
-        k.value = value;
-        //        k.data(msg.getStatusString(msg.status), pitch, velocity, value);
+        ofLog(OF_LOG_VERBOSE, "value: " + ofToString(value));
+        k.data(msg.getStatusString(msg.status), pitch, velocity, value);
+        testValue = value;
       }
 
     
-//  ofLog(OF_LOG_VERBOSE, "knob value:" + ofToString(knobs[0].value));
+  ofLog(OF_LOG_VERBOSE, "knob value: " + ofToString(knobs[0].getValue()));
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
   ofBackground(20);
-  ofDrawRectangle(200, 20, ofMap(testValue, 0, 127.0, 10, 400, true), 30);
-  ofDrawRectangle(200, 20, ofMap(knobs[0].value, 0, 127.0, 10, 400, true), 30);
+  ofDrawRectangle(200, 50, ofMap(testValue, 0, 127.0, 10, 400, true), 30);
+  ofDrawRectangle(200, 20, ofMap(knobs[0].getValue(), 0, 127.0, 10, 400, true), 30);
   
 //  ofLog(OF_LOG_VERBOSE, "knob order:" + ofToString(knobs[0].order));
 //  ofLog(OF_LOG_VERBOSE, "knob on channel:" + ofToString(knobs[0].channel));
 //  ofLog(OF_LOG_VERBOSE, "knob control:" + ofToString(knobs[0].control));
 //  ofLog(OF_LOG_VERBOSE, "knob pitch:" + ofToString(knobs[0].pitch));
-//  ofLog(OF_LOG_VERBOSE, "knob value:" + ofToString(testValue));
+//  ofLog(OF_LOG_VERBOSE, "knob value:" + ofToString(knobs[0].getValue()));
 //  ofLog(OF_LOG_VERBOSE, "-------------------------------------------- \n");
 }
 

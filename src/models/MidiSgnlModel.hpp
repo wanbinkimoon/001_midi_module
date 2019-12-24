@@ -11,13 +11,11 @@
 #include <stdio.h>
 #define KnobModel_hpp
 
-class MidiSgnl : public ofBaseApp{
-  
-public:
+struct MidiSgnl {
   int order;
   string label;
-  int channel;        //< 1 - 16
-  int control;        //< 0 - 127
+  int channel;
+  int control;
   
   MidiSgnl(int ord, string lbl, int ch, int ctrl){
     order = ord;
@@ -34,6 +32,7 @@ public:
   int pitch;
   int velocity;
   int value;
+  int getValue();
   void data(string st, int pit, int vel, int val);
 };
 

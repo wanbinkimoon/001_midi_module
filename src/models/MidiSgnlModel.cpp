@@ -15,3 +15,7 @@ void MidiSgnl::data(string st, int pit, int vel, int val){
   value = val;
 //  std::cout << "value exit in data: " << val << "\n";
 };
+
+int MidiSgnl::getValue(){
+  return value;
+}
