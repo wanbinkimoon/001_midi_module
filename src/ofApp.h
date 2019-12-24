@@ -27,8 +27,9 @@ public:
   void gotMessage(ofMessage msg);
   
   ofxMidiIn midiIn;
-  void newMidiMessage(ofxMidiMessage& eventArgs);
-  string convertMidiStatus(MidiStatus status);
+  void newMidiMessage(ofxMidiMessage& msg);
+  
+  int testValue;
   
   enum {
     KNOB_NUMB = 16,

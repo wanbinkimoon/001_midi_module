@@ -20,13 +20,14 @@ void ofApp::setup(){
   // print received messages to the console
   midiIn.setVerbose(true);
   
-  ofBackground(120, 20, 120);
+  ofBackground(1);
   
 
   for(MidiDataModel data : knobsData.knobsData){
-    knobs.push_back(MidiSgnl(data.order, data.label, data.channel, data.control));
-    knobs = sortMidi(knobs);
+    MidiSgnl newMidi = MidiSgnl(data.order, data.label, data.channel, data.control);
+    knobs.push_back(newMidi);
   }
+  knobs = sortMidi(knobs);
   
   knobsPanel = gui.addPanel("header color", ofJson({{"width", 270}}));
   knobsPanel->setPosition(ofPoint(20,20));
@@ -47,44 +48,41 @@ void ofApp::update(){
 }
 
 //--------------------------------------------------------------
-void ofApp::newMidiMessage(ofxMidiMessage& msg) {
+void ofApp::newMidiMessage(ofxMidiMessage &msg) {
   
-  //  ofLog(OF_LOG_VERBOSE, "midi play : " + convertMidiStatus(msg.status));
+  //  ofLog(OF_LOG_VERBOSE, "midi play : " + msg.getStatusString(msg.status);
   //  ofLog(OF_LOG_VERBOSE, "midi play on channel:" + ofToString(msg.channel));
   //  ofLog(OF_LOG_VERBOSE, "midi play control:" + ofToString(msg.control));
   //  ofLog(OF_LOG_VERBOSE, "midi play pitch:" + ofToString(msg.pitch));
-  //  ofLog(OF_LOG_VERBOSE, "midi play whith value:" + ofToString(msg.value));
+    ofLog(OF_LOG_VERBOSE, "midi play whith value:" + ofToString(msg.value));
   //  ofLog(OF_LOG_VERBOSE, "-------------------------------------------- \n");
+  
+  int value = msg.value;
+  int velocity = msg.velocity;
+  int pitch = msg.pitch;
   
   if(knobs.size() > 0)
     for(MidiSgnl k : knobs)
-      if(msg.channel == k.channel && msg.control == k.control)
-        k.data("status", msg.pitch, msg.velocity, msg.value);
+      if(msg.channel == k.channel && msg.control == k.control) {
+        k.value = value;
+        //        k.data(msg.getStatusString(msg.status), pitch, velocity, value);
+      }
+
     
 //  ofLog(OF_LOG_VERBOSE, "knob value:" + ofToString(knobs[0].value));
-}
-
-string ofApp::convertMidiStatus(MidiStatus status){
-  switch(status){
-    case MIDI_NOTE_OFF:
-      return "OFF";
-    case MIDI_NOTE_ON:
-      return "ON";
-    default:
-      return "NONE";
-  }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
   ofBackground(20);
-//  ofDrawRectangle(200, 20, ofMap(knobs[0].value, 0, 127.0, 10, 400, true), 30);
+  ofDrawRectangle(200, 20, ofMap(testValue, 0, 127.0, 10, 400, true), 30);
+  ofDrawRectangle(200, 20, ofMap(knobs[0].value, 0, 127.0, 10, 400, true), 30);
   
 //  ofLog(OF_LOG_VERBOSE, "knob order:" + ofToString(knobs[0].order));
 //  ofLog(OF_LOG_VERBOSE, "knob on channel:" + ofToString(knobs[0].channel));
 //  ofLog(OF_LOG_VERBOSE, "knob control:" + ofToString(knobs[0].control));
 //  ofLog(OF_LOG_VERBOSE, "knob pitch:" + ofToString(knobs[0].pitch));
-  ofLog(OF_LOG_VERBOSE, "knob value:" + ofToString(knobs[0].value));
+//  ofLog(OF_LOG_VERBOSE, "knob value:" + ofToString(testValue));
 //  ofLog(OF_LOG_VERBOSE, "-------------------------------------------- \n");
 }
 
@@ -142,7 +140,7 @@ void ofApp::windowResized(int w, int h){
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-  
+  std::cout << msg.message;
 }
 
 //--------------------------------------------------------------

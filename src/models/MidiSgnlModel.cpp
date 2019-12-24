@@ -8,10 +8,10 @@
 #include "MidiSgnlModel.hpp"
 
 void MidiSgnl::data(string st, int pit, int vel, int val){
-  std::cout << "val enter in data: " << val << "\n";
+//  std::cout << "val enter in data: " << val << "\n";
   status = st;
   pitch = pit;
   velocity = vel;
   value = val;
-  std::cout << "value exit in data: " << val << "\n";
+//  std::cout << "value exit in data: " << val << "\n";
 };
