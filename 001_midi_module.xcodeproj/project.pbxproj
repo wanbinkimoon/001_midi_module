@@ -34,6 +34,7 @@
 		951BE42613CDC71533216D5E /* ofxMidiIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B70070ACED5ABEA70C736A3F /* ofxMidiIn.cpp */; };
 		9838867AAEE52FA55BD87361 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47B24F0DAB5089AFF017B4B9 /* ofxGuiGroup.cpp */; };
 		9869DDCA32E016053E717266 /* ofxGuiElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6B982CF51C82555FE23F39C4 /* ofxGuiElement.cpp */; };
+		9A0E2B9E23B1A97100176E2A /* MidiSgnlModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E2B9D23B1A97100176E2A /* MidiSgnlModel.cpp */; };
 		9E85BC15C93B599CE554C525 /* ofxGuiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5C71C737C545D4162C66D81 /* ofxGuiToggle.cpp */; };
 		A3A63E527E683E62A75346FD /* ofxGuiSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A63BADE46AB51AB99E713C3A /* ofxGuiSliderGroup.cpp */; };
 		A3ACA7E4BD7B89820AF77A3C /* ofxGuiValuePlotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 525C1D2F2B9CE36A637A3F2A /* ofxGuiValuePlotter.cpp */; };
@@ -116,6 +117,7 @@
 		9A0E2B9323B054CB00176E2A /* MidiSgnlModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MidiSgnlModel.hpp; sourceTree = "<group>"; };
 		9A0E2B9723B1190500176E2A /* KnobsData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KnobsData.hpp; sourceTree = "<group>"; };
 		9A0E2B9B23B1195600176E2A /* MidiDataModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MidiDataModel.hpp; sourceTree = "<group>"; };
+		9A0E2B9D23B1A97100176E2A /* MidiSgnlModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MidiSgnlModel.cpp; sourceTree = "<group>"; };
 		9A27B2B5316C45F98B6845F1 /* ofxGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiToggle.h; path = ../../addons/ofxGuiExtended/src/controls/ofxGuiToggle.h; sourceTree = SOURCE_ROOT; };
 		9A3624BCB03EC00BA5F87493 /* Element.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Element.cpp; path = ../../addons/ofxGuiExtended/src/DOM/Element.cpp; sourceTree = SOURCE_ROOT; };
 		9FB08E768B560777594B16BB /* ofxDOMFlexBoxLayout.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDOMFlexBoxLayout.h; path = ../../addons/ofxGuiExtended/src/view/ofxDOMFlexBoxLayout.h; sourceTree = SOURCE_ROOT; };
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				9A0E2B9323B054CB00176E2A /* MidiSgnlModel.hpp */,
+				9A0E2B9D23B1A97100176E2A /* MidiSgnlModel.cpp */,
 				9A0E2B9B23B1195600176E2A /* MidiDataModel.hpp */,
 			);
 			path = models;
@@ -975,6 +978,7 @@
 				D4260DC991FD43E4CB2AC78E /* ofxRtMidiIn.cpp in Sources */,
 				0E29853184B82E75A6C551B1 /* ofxRtMidiOut.cpp in Sources */,
 				D951B649CC6EAB557DA7D008 /* ofxBaseMidi.cpp in Sources */,
+				9A0E2B9E23B1A97100176E2A /* MidiSgnlModel.cpp in Sources */,
 				8A1AAFBF49F2317FADC1E2F6 /* ofxMidi.cpp in Sources */,
 				DBB6549AA8D98C95A3076DE9 /* ofxMidiClock.cpp in Sources */,
 				951BE42613CDC71533216D5E /* ofxMidiIn.cpp in Sources */,

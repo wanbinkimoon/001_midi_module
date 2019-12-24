@@ -26,16 +26,15 @@ public:
     control = ctrl;
   }
   
+  bool operator< (const MidiSgnl &other) const {
+    return order < other.order;
+    }
+  
   string status;
   int pitch;
   int velocity;
   int value;
-  void data(string st, int pit, int vel, int val ){
-    status = st;
-    pitch = pit;
-    velocity = vel;
-    value = val;
-  };
+  void data(string st, int pit, int vel, int val);
 };
 
 #endif /* KnobModel_hpp */

@@ -5,6 +5,7 @@
 #include "ofxGuiExtended.h"
 #include "MidiSgnlModel.hpp"
 #include "KnobsData.hpp"
+
 class ofApp : public ofBaseApp, public ofxMidiListener{
   
 public:
@@ -39,7 +40,15 @@ public:
   std::vector<MidiSgnl> pads;
   std::vector<MidiSgnl> arrows;
   
+  vector<MidiSgnl> sortMidi(vector<MidiSgnl> toSort){
+    std::sort(toSort.begin(), toSort.end());
+    return toSort;
+  }
+  
   KnobsData knobsData;
   
   ofxGui gui;
+  ofxGuiPanel* knobsPanel;
+  ofxGuiContainer* knobContainter;
+  ofParameter<int> knobValue;
 };
