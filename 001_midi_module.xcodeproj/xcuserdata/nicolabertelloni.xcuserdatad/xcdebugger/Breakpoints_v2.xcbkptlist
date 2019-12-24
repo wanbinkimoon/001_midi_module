@@ -14,10 +14,10 @@
             filePath = "src/ofApp.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "ofApp::update()"
-            landmarkType = "7">
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -55,49 +55,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B474976D-136F-470D-94D0-DFE07813B6B1"
+            uuid = "20E2B887-1BA6-44D5-ACE9-47992BF404EB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/ofApp.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "ofApp::draw()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB2A163C-29CC-4A58-9050-B4E756610215"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "ofApp::setup()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B474976D-136F-470D-94D0-DFE07813B6B1 - edc1c379b12ff74d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ofApp::setup()"
-                  moduleName = "001_midi_moduleDebug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nicolabertelloni/Developer/of_v0.11.0_osx/apps/001_midi_module/src/ofApp.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "643">
-               </Location>
-               <Location
-                  uuid = "B474976D-136F-470D-94D0-DFE07813B6B1 - edc1c379b12ff74d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ofApp::setup()"
-                  moduleName = "001_midi_moduleDebug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nicolabertelloni/Developer/of_v0.11.0_osx/apps/001_midi_module/src/ofApp.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "1409">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

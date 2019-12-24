@@ -3,8 +3,6 @@
 #include "ofMain.h"
 #include "ofxMidi.h"
 #include "ofxGuiExtended.h"
-#include "MidiSgnlModel.hpp"
-#include "KnobsData.hpp"
 
 class ofApp : public ofBaseApp, public ofxMidiListener{
   
@@ -29,27 +27,28 @@ public:
   ofxMidiIn midiIn;
   void newMidiMessage(ofxMidiMessage& msg);
   
-  int testValue;
-  
-  enum {
-    KNOB_NUMB = 16,
-    PAD_NUMB = 8,
-    ARROW_NUMB = 4
-  };
-  
-  std::vector<MidiSgnl> knobs;
-  std::vector<MidiSgnl> pads;
-  std::vector<MidiSgnl> arrows;
-  
-  vector<MidiSgnl> sortMidi(vector<MidiSgnl> toSort){
-    std::sort(toSort.begin(), toSort.end());
-    return toSort;
-  }
-  
-  KnobsData knobsData;
+  ofParameter<int> knobsONE[16];
+  ofParameter<int> knobsTWO[16];
+  ofParameter<bool> padsONE[8];
+  ofParameter<bool> padsTWO[8];
+  ofParameter<bool> arrows[4];
   
   ofxGui gui;
-  ofxGuiPanel* knobsPanel;
-  ofxGuiContainer* knobContainter;
-  ofParameter<int> knobValue;
+  ofxGuiPanel* knobsOne;
+  ofxGuiContainer* knobsOneTop;
+  ofxGuiContainer* knobsOneBottom;
+  
+  ofxGuiPanel* padsOne;
+  ofxGuiContainer* padOneCont;
+  
+  ofxGuiPanel* knobsTwo;
+  ofxGuiContainer* knobsTwoTop;
+  ofxGuiContainer* knobsTwoBottom;
+  
+  ofxGuiPanel* padsTwo;
+  ofxGuiContainer* padTwoCont;
+  
+  
+  int SLIDER_SIDE = 100;
 };
+
