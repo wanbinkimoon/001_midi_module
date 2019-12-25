@@ -13,7 +13,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  ofDrawCircle(ofGetWidth()*0.5,ofGetHeight()*0.5, midi->knobsONE[1]);
+  ofDrawCircle(ofGetWidth()*0.5,ofGetHeight()*0.5, midi->knobsONE[0] + sound->centroid * ofGetWidth()*0.45);
 }
 
 //--------------------------------------------------------------

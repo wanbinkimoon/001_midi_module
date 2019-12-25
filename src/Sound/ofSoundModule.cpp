@@ -8,15 +8,14 @@
 #include "ofSoundModule.h"
 
 void ofSoundModule::setup(){
+  ofSetWindowTitle("Sound Analysis LAB");
   int sampleRate = 44100;
   int bufferSize = 512;
-  int outChannels = 0;
-  int inChannels = 2;
-  // setup the sound stream
-  soundStream.setup(this, outChannels, inChannels, sampleRate, bufferSize, 3);
-  
+  int channels = 1;
+
   //setup ofxAudioAnalyzer with the SAME PARAMETERS
-  audioAnalyzer.setup(sampleRate, bufferSize, inChannels);
+  audioAnalyzer.setup(sampleRate, bufferSize, channels);
+  
   
   ofBackground(10);
 }
@@ -27,20 +26,50 @@ void ofSoundModule::audioIn(ofSoundBuffer &inBuffer){
 }
 //   ----------------------------------------------------
 void ofSoundModule::update(){
-  rms_l = audioAnalyzer.getValue(RMS, 0, smooth);
-  rms_r = audioAnalyzer.getValue(RMS, 1, smooth);
-  melBands = audioAnalyzer.getValues(MEL_BANDS, 0, .2); // return an array of 24 bands
+  //  Stereo AUDIO VARIABLES
+  LEFT = audioAnalyzer.getValue(RMS, 0, smooth);
+  RIGHT = audioAnalyzer.getValue(RMS, 1, smooth);
+  
+  centroid = audioAnalyzer.getValue(CENTROID, 0, smooth, TRUE);
+  bands = audioAnalyzer.getValues(MEL_BANDS, 0, smooth);
 
-  for (int i = 0; i < melBands.size(); i++){
-    melBands[i] = ofMap(melBands[i], DB_MIN, DB_MAX, 0.0, 1.0, true);
+  BAND_NUMB = bands.size();
+  BAND_WIDTH = (GRAPH_WIDTH / BAND_NUMB) - BAND_GAP;
+  
+  for (unsigned int i = 0; i < BAND_NUMB; i++){
+    bands[i] = ofMap(bands[i], DB_MIN, DB_MAX, 0.0, 1.0, true);
   }
 }
 //   ----------------------------------------------------
 void ofSoundModule::draw(){
-  ofBackground(10, 10, 10, 50);
+  ofBackground(10, 10, 10, 10);
   
-  ofSetColor(125, 200, 255);
-  for (int i = 0; i < melBands.size(); i++){
-    ofDrawRectangle((20 * i) + 20, 20, 10, ofMap(melBands[i], 0, 1, 0, 100));
+  ofPushMatrix();
+  ofTranslate(MARGIN, ofGetHeight() - GRAPH_HEIGHT - MARGIN);
+  
+  for (unsigned int x = 0; x < BAND_NUMB; x++){
+    for(unsigned int y = 0; y < CELL_NUMB; y++){
+      ofColor fillColor  = ofColor(0, 0, 0, 0);
+      float CELL_VALUE = 1 / float(CELL_NUMB);
+      
+      ALPHA = bands[x] > CELL_VALUE * y ? 200 : 40;
+      
+      if(y < 2) fillColor = ofColor(GREEN, ALPHA);
+      else if(y >= 2 && y < 4) fillColor = ofColor(YELLOW, ALPHA);
+      else if(y >= 4 && y < 6) fillColor = ofColor(ORANGE, ALPHA);
+      else if(y >= 6) fillColor = ofColor(RED, ALPHA);
+      
+      float rectX = ((BAND_WIDTH + BAND_GAP) * x) + BAND_GAP;
+      float rectY = GRAPH_HEIGHT - ((CELL_HEIGHT + CELL_GAP) * y) - CELL_HEIGHT - CELL_GAP;
+      
+      ofSetColor(fillColor); ofFill();
+      ofDrawRectangle(rectX, rectY, BAND_WIDTH, CELL_HEIGHT);
+    }
   }
+  
+  ofPopMatrix();
+}
+//   ----------------------------------------------------
+void ofSoundModule::exit(){
+  audioAnalyzer.exit();
 }
