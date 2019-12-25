@@ -1,6 +1,8 @@
 #include "ofMain.h"
-#include "ofApp.hpp"
+#include "ofApp.h"
 #include "ofMidiModule.h"
+#include "ofSoundModule.h"
+
 #include "ofAppGLFWWindow.h"
 
 //========================================================================
@@ -10,23 +12,28 @@ int main( ){
 
   ofGLFWWindowSettings settings;
   
-//  settings.multiMonitorFullScreen = true;
   settings.setSize(920, 940);
   settings.setPosition(glm::vec2(20,20));
   settings.resizable = false;
   shared_ptr<ofAppBaseWindow> ofMidiWindow = ofCreateWindow(settings);
-  
-  settings.windowMode = OF_FULLSCREEN;
-//  settings.setSize(300, 300);
-  settings.setPosition(glm::vec2(0,0));
-//  settings.resizable = false;
-  shared_ptr<ofAppBaseWindow> ofAppWindow = ofCreateWindow(settings);
-  
   shared_ptr<ofMidiModule> MidiModule(new ofMidiModule);
+  ofRunApp(ofMidiWindow, MidiModule);
+  
+  settings.setSize(700, 400);
+  settings.setPosition(glm::vec2(960,20));
+  settings.resizable = false;
+  shared_ptr<ofAppBaseWindow> ofSoundWindow = ofCreateWindow(settings);
+  shared_ptr<ofSoundModule> SoundModule(new ofSoundModule);
+  ofRunApp(ofSoundWindow, SoundModule);
+  
+  settings.setSize(700, 500);
+//  settings.windowMode = OF_FULLSCREEN;
+  settings.setPosition(glm::vec2(960,480));
+  shared_ptr<ofAppBaseWindow> ofAppWindow = ofCreateWindow(settings);
   shared_ptr<ofApp> MainApp(new ofApp);
   MainApp->midi = MidiModule;
-
-  ofRunApp(ofMidiWindow, MidiModule);
+  MainApp->sound = SoundModule;
   ofRunApp(ofAppWindow, MainApp);
+  
   ofRunMainLoop();
 }

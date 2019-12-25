@@ -1,2 +1,4 @@
-ofxMidi
+ofxAudioAnalyzer
+ofxAudioDecoder
 ofxGuiExtended
+ofxMidi

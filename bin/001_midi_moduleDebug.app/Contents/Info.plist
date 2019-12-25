@@ -38,8 +38,6 @@
 	<string>1121</string>
 	<key>DTXcodeBuild</key>
 	<string>11B500</string>
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.entertainment</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.9</string>
 	<key>NSCameraUsageDescription</key>
