@@ -13,7 +13,7 @@ void ofMidiModule::setup(){
   
 //   ----------------------------------------------------
 
-  knobsOne = gui.addPanel("USER - knobs");
+  knobsOne = gui.addGroup("USER - knobs");
   knobsOne->loadTheme("theme.json", true);
   knobsOne->setPosition(ofPoint(20,20));
   knobsOneTop = knobsOne->addContainer("Knobs top", ofJson({{"direction", "horizontal"}}));
@@ -24,7 +24,7 @@ void ofMidiModule::setup(){
   for(unsigned int i = 8; i < 16; i++){
     knobsOneBottom->add(knobsONE[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}, {"precision", 0}}));
   }
-  padsOne =  gui.addPanel("USER - pads");
+  padsOne =  gui.addGroup("USER - pads");
   padsOne->loadTheme("theme.json", true);
   padsOne->setPosition(knobsOne->getShape().getBottomLeft() + ofPoint(0,20));
   padOneCont = padsOne->addContainer("pads one", ofJson({{"direction", "horizontal"}}));
@@ -34,7 +34,7 @@ void ofMidiModule::setup(){
   
 //   ----------------------------------------------------
 
-  knobsTwo = gui.addPanel("FACTORY - knobs");
+  knobsTwo = gui.addGroup("FACTORY - knobs");
   knobsTwo->loadTheme("theme_two.json", true);
   knobsTwo->setPosition(padsOne->getShape().getBottomLeft() + ofPoint(0,20));
   knobsTwoTop = knobsTwo->addContainer("Knobs top", ofJson({{"direction", "horizontal"}}));
@@ -45,7 +45,7 @@ void ofMidiModule::setup(){
   for(unsigned int i = 8; i < 16; i++){
     knobsTwoBottom->add(knobsTWO[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}, {"precision", 0}}));
   }
-  padsTwo = gui.addPanel("FACTORY - pads");
+  padsTwo = gui.addGroup("FACTORY - pads");
   padsTwo->loadTheme("theme_two.json", true);
   padsTwo->setPosition(knobsTwo->getShape().getBottomLeft() + ofPoint(0,20));
   padTwoCont = padsTwo->addContainer("pads one", ofJson({{"direction", "horizontal"}}));
@@ -60,6 +60,7 @@ void ofMidiModule::setup(){
 //--------------------------------------------------------------
 void ofMidiModule::newMidiMessage(ofxMidiMessage &msg) {
   ofLog(OF_LOG_VERBOSE, "midi play : " + msg.getStatusString(msg.status));
+  ofLog(OF_LOG_VERBOSE, "midi play : " + ofToString(msg.channel));
   ofLog(OF_LOG_VERBOSE, "midi play on channel:" + ofToString(msg.channel));
   ofLog(OF_LOG_VERBOSE, "midi play control:" + ofToString(msg.control));
   ofLog(OF_LOG_VERBOSE, "midi play pitch:" + ofToString(msg.pitch));
@@ -67,6 +68,8 @@ void ofMidiModule::newMidiMessage(ofxMidiMessage &msg) {
   ofLog(OF_LOG_VERBOSE, "-------------------------------------------- \n");
   
   int value = ofMap(msg.value, 0, 127, 0, 100);
+  
+  if(msg.status == MIDI_SYSEX) channel != channel;
 
 //  KNOBS mapping
   switch (msg.control) {
@@ -123,7 +126,7 @@ void ofMidiModule::newMidiMessage(ofxMidiMessage &msg) {
   }
   
 //  PADS Mapping
-  if(!(msg.getStatusString(msg.status) == "Note On")) return;
+  if(!(msg.status == MIDI_NOTE_ON)) return;
   switch (msg.pitch) {
     case 9:
       msg.channel == 7 ? padsONE[0] = !padsONE[0] : padsTWO[0] = !padsTWO[0];

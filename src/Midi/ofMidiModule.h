@@ -15,23 +15,25 @@ public:
   
   ofParameter<int> knobsONE[16];
   ofParameter<int> knobsTWO[16];
+  ofParameter<int> knobsDISPLAY[16];
   ofParameter<bool> padsONE[8];
   ofParameter<bool> padsTWO[8];
+  ofParameter<bool> channel;
   ofParameter<bool> arrows[4];
   
   ofxGui gui;
-  ofxGuiPanel* knobsOne;
+  ofxGuiGroup* knobsOne;
   ofxGuiContainer* knobsOneTop;
   ofxGuiContainer* knobsOneBottom;
   
-  ofxGuiPanel* padsOne;
+  ofxGuiGroup* padsOne;
   ofxGuiContainer* padOneCont;
   
-  ofxGuiPanel* knobsTwo;
+  ofxGuiGroup* knobsTwo;
   ofxGuiContainer* knobsTwoTop;
   ofxGuiContainer* knobsTwoBottom;
   
-  ofxGuiPanel* padsTwo;
+  ofxGuiGroup* padsTwo;
   ofxGuiContainer* padTwoCont;
   
   
