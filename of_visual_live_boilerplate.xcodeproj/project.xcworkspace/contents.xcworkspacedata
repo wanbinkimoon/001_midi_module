@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:../bin/data"
+      name = "data">
+      <FileRef
+         location = "group:theme.json">
+      </FileRef>
+      <FileRef
+         location = "group:settings.xml">
+      </FileRef>
+      <FileRef
+         location = "group:theme_two.json">
+      </FileRef>
+      <FileRef
+         location = "group:theme_three.json">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "self:">
+   </FileRef>
+</Workspace>

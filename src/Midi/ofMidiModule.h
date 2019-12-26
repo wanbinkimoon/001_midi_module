@@ -37,6 +37,9 @@ public:
   ofxGuiContainer* padTwoCont;
   
   
-  int SLIDER_SIDE = 100;
+  int SLIDER_WIDTH = 100;
+  int SLIDER_HEIGHT = 80;
+  int PAD_WIDTH = 100;
+  int PAD_HEIGHT = 80;
 };
 

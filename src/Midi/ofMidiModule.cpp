@@ -15,42 +15,43 @@ void ofMidiModule::setup(){
 
   knobsOne = gui.addGroup("USER - knobs");
   knobsOne->loadTheme("theme.json", true);
-  knobsOne->setPosition(ofPoint(20,20));
+  knobsOne->setPosition(ofPoint(20,10));
   knobsOneTop = knobsOne->addContainer("Knobs top", ofJson({{"direction", "horizontal"}}));
   for(unsigned int i = 0; i < 8; i++){
-    knobsOneTop->add(knobsONE[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}, {"precision", 0}}));
+    knobsOneTop->add(knobsONE[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}, {"precision", 0}}));
   }
   knobsOneBottom = knobsOne->addContainer("Knobs Bottom", ofJson({{"direction", "horizontal"}}));
   for(unsigned int i = 8; i < 16; i++){
-    knobsOneBottom->add(knobsONE[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}, {"precision", 0}}));
+    knobsOneBottom->add(knobsONE[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}, {"precision", 0}}));
   }
+  
   padsOne =  gui.addGroup("USER - pads");
   padsOne->loadTheme("theme.json", true);
-  padsOne->setPosition(knobsOne->getShape().getBottomLeft() + ofPoint(0,20));
+  padsOne->setPosition(knobsOne->getShape().getBottomLeft() + ofPoint(0,2));
   padOneCont = padsOne->addContainer("pads one", ofJson({{"direction", "horizontal"}}));
   for(unsigned int i = 0; i < 8; i++){
-    padOneCont->add<ofxGuiButton>(padsONE[i].set("pad", false), ofJson({{"type", "fullsize"}, {"text-align", "center"}, {"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}}));
+    padOneCont->add<ofxGuiButton>(padsONE[i].set("pad", false), ofJson({{"type", "fullsize"}, {"text-align", "center"}, {"width", PAD_WIDTH}, {"height", PAD_HEIGHT}}));
   }
   
 //   ----------------------------------------------------
 
   knobsTwo = gui.addGroup("FACTORY - knobs");
   knobsTwo->loadTheme("theme_two.json", true);
-  knobsTwo->setPosition(padsOne->getShape().getBottomLeft() + ofPoint(0,20));
+  knobsTwo->setPosition(padsOne->getShape().getBottomLeft() + ofPoint(0,10));
   knobsTwoTop = knobsTwo->addContainer("Knobs top", ofJson({{"direction", "horizontal"}}));
   for(unsigned int i = 0; i < 8; i++){
-    knobsTwoTop->add(knobsTWO[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}, {"precision", 0}}));
+    knobsTwoTop->add(knobsTWO[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}, {"precision", 0}}));
   }
   knobsTwoBottom = knobsTwo->addContainer("Knobs Bottom", ofJson({{"direction", "horizontal"}}));
   for(unsigned int i = 8; i < 16; i++){
-    knobsTwoBottom->add(knobsTWO[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}, {"precision", 0}}));
+    knobsTwoBottom->add(knobsTWO[i].set("knob", 0, 0, 100), ofJson({{"type", "circular"},{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}, {"precision", 0}}));
   }
   padsTwo = gui.addGroup("FACTORY - pads");
   padsTwo->loadTheme("theme_two.json", true);
-  padsTwo->setPosition(knobsTwo->getShape().getBottomLeft() + ofPoint(0,20));
+  padsTwo->setPosition(knobsTwo->getShape().getBottomLeft() + ofPoint(0,2));
   padTwoCont = padsTwo->addContainer("pads one", ofJson({{"direction", "horizontal"}}));
   for(unsigned int i = 0; i < 8; i++){
-    padTwoCont->add<ofxGuiButton>(padsTWO[i].set("pad", false), ofJson({{"type", "fullsize"}, {"text-align", "center"}, {"width", SLIDER_SIDE}, {"height", SLIDER_SIDE}}));
+    padTwoCont->add<ofxGuiButton>(padsTWO[i].set("pad", false), ofJson({{"type", "fullsize"}, {"text-align", "center"}, {"width", PAD_WIDTH}, {"height", PAD_HEIGHT}}));
   }
 
 //   ----------------------------------------------------

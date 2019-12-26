@@ -13,7 +13,7 @@ int main( ){
   
   ofGLFWWindowSettings settings;
   
-  settings.setSize(920, 940);
+  settings.setSize(920, 740);
   settings.setPosition(glm::vec2(20,20));
   settings.resizable = false;
   shared_ptr<ofAppBaseWindow> ofMidiWindow = ofCreateWindow(settings);
@@ -27,8 +27,8 @@ int main( ){
   shared_ptr<ofSoundModule> SoundModule(new ofSoundModule);
   ofRunApp(ofSoundWindow, SoundModule);
   
-  settings.setSize(920, 240);
-  settings.setPosition(glm::vec2(20,20));
+  settings.setSize(920, 220);
+  settings.setPosition(glm::vec2(20,820));
   settings.resizable = false;
   shared_ptr<ofAppBaseWindow> ofColorWindow = ofCreateWindow(settings);
   shared_ptr<ofColorModule> ColorModule(new ofColorModule);
