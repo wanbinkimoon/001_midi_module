@@ -40,6 +40,7 @@
 		951BE42613CDC71533216D5E /* ofxMidiIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B70070ACED5ABEA70C736A3F /* ofxMidiIn.cpp */; };
 		9838867AAEE52FA55BD87361 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47B24F0DAB5089AFF017B4B9 /* ofxGuiGroup.cpp */; };
 		9869DDCA32E016053E717266 /* ofxGuiElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6B982CF51C82555FE23F39C4 /* ofxGuiElement.cpp */; };
+		9A2FBB7E23B44BDD00B39815 /* ofColorModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FBB7C23B44BDD00B39815 /* ofColorModule.cpp */; };
 		9D72A0B4BAED5487D5CD7538 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1B275EC347E41C380E1179 /* OpenAL.framework */; };
 		9E85BC15C93B599CE554C525 /* ofxGuiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5C71C737C545D4162C66D81 /* ofxGuiToggle.cpp */; };
 		A3A63E527E683E62A75346FD /* ofxGuiSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A63BADE46AB51AB99E713C3A /* ofxGuiSliderGroup.cpp */; };
@@ -208,6 +209,8 @@
 		991911B9506AB1EF95DDC826 /* ofxMidiClock.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxMidiClock.cpp; path = ../../addons/ofxMidi/src/ofxMidiClock.cpp; sourceTree = SOURCE_ROOT; };
 		992C80B5392F3F702A1A34C0 /* source.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = source.h; path = ../../addons/ofxAudioAnalyzer/libs/essentia/include/essentia/streaming/source.h; sourceTree = SOURCE_ROOT; };
 		9A27B2B5316C45F98B6845F1 /* ofxGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiToggle.h; path = ../../addons/ofxGuiExtended/src/controls/ofxGuiToggle.h; sourceTree = SOURCE_ROOT; };
+		9A2FBB7C23B44BDD00B39815 /* ofColorModule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofColorModule.cpp; sourceTree = "<group>"; };
+		9A2FBB7D23B44BDD00B39815 /* ofColorModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofColorModule.h; sourceTree = "<group>"; };
 		9A3624BCB03EC00BA5F87493 /* Element.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Element.cpp; path = ../../addons/ofxGuiExtended/src/DOM/Element.cpp; sourceTree = SOURCE_ROOT; };
 		9A97A4BD23B3C6890069259D /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		9D37636731E7627CBB5A54FE /* tnt_math_utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = tnt_math_utils.h; path = ../../addons/ofxAudioAnalyzer/libs/essentia/include/essentia/utils/tnt/tnt_math_utils.h; sourceTree = SOURCE_ROOT; };
@@ -705,6 +708,15 @@
 				6CF524FE9B850E20A79ACBF4 /* ofxRtMidiOut.h */,
 			);
 			name = desktop;
+			sourceTree = "<group>";
+		};
+		9A2FBB7B23B44BBB00B39815 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				9A2FBB7C23B44BDD00B39815 /* ofColorModule.cpp */,
+				9A2FBB7D23B44BDD00B39815 /* ofColorModule.h */,
+			);
+			path = Color;
 			sourceTree = "<group>";
 		};
 		9A97A4BC23B3C6750069259D /* Midi */ = {
@@ -1214,6 +1226,7 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				9A97A4BD23B3C6890069259D /* ofApp.h */,
+				9A2FBB7B23B44BBB00B39815 /* Color */,
 				9A97A4BC23B3C6750069259D /* Midi */,
 				4B40D8E93F6785C684B587FE /* Sound */,
 			);
@@ -1416,6 +1429,7 @@
 				1BD9F2B13FFD2A635801097A /* ofxGuiPanel.cpp in Sources */,
 				A3A63E527E683E62A75346FD /* ofxGuiSliderGroup.cpp in Sources */,
 				41B37D275A3FD2D7A090FD47 /* ofxGuiTabs.cpp in Sources */,
+				9A2FBB7E23B44BDD00B39815 /* ofColorModule.cpp in Sources */,
 				1772502923040DE67D0AB5E3 /* ofxGuiButton.cpp in Sources */,
 				27D31E93188465BB47E91F1D /* ofxGuiFpsPlotter.cpp in Sources */,
 				2CDE91D7C2687428C4F7EB9E /* ofxGuiFunctionPlotter.cpp in Sources */,

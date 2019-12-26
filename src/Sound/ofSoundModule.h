@@ -20,11 +20,13 @@ public:
   void update();
   void draw();
   void exit();
-  float LEFT, RIGHT;
-  vector<float> bands;
-  
+
+
   ofSoundStream soundStream;
   ofxAudioAnalyzer audioAnalyzer;
+  float LEFT, RIGHT;
+  vector<float> bands;
+  vector<float> spectrum;
   
   int MARGIN = 20;
   int GRAPH_HEIGHT = 180;
@@ -38,11 +40,11 @@ public:
   int BAND_NUMB;
   int BAND_GAP = 6;
   
-  float SLIDER_WIDTH = 60;
+  float SLIDER_WIDTH = 80;
   float SLIDER_HEIGHT = 120;
   
-  float SLIDER_WIDTH_H = 220;
-  float SLIDER_HEIGHT_H = 40;
+  float SLIDER_WIDTH_H = 250;
+  float SLIDER_HEIGHT_H = 55;
   
   ofColor RED = ofColor(250, 80, 50);
   ofColor ORANGE = ofColor(250, 160, 30);

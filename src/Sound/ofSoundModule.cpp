@@ -50,7 +50,8 @@ void ofSoundModule::update(){
   centroid = audioAnalyzer.getValue(CENTROID, 0, smooth, TRUE);
   bands = audioAnalyzer.getValues(MEL_BANDS, 0, smooth);
   power   = audioAnalyzer.getValue(POWER, 0, smooth);
-  
+  spectrum = audioAnalyzer.getValues(SPECTRUM, 0, smooth);
+
   BAND_NUMB = bands.size();
   BAND_WIDTH = (GRAPH_WIDTH / BAND_NUMB) - BAND_GAP;
   

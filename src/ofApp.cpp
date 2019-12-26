@@ -13,12 +13,17 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+  ofSetColor(color->palette[0]);
   ofDrawCircle(ofGetWidth()*0.5,ofGetHeight()*0.5, midi->knobsONE[0] + sound->centroid * ofGetWidth()*0.45);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+  std::cout << "Letter pressed: " << key << "\n";
   
+//  F = 102
+  if(key == 102) FULLSCREEN = !FULLSCREEN;
+    
 }
 
 //--------------------------------------------------------------

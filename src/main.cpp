@@ -2,14 +2,15 @@
 #include "ofApp.h"
 #include "ofMidiModule.h"
 #include "ofSoundModule.h"
+#include "ofColorModule.h"
 
 #include "ofAppGLFWWindow.h"
 
 //========================================================================
 int main( ){
-//	ofSetupOpenGL(920, 940, OF_WINDOW);			// <-------- setup the GL context
-//  ofRunApp(new ofMidiModule());
-
+  //	ofSetupOpenGL(920, 940, OF_WINDOW);			// <-------- setup the GL context
+  //  ofRunApp(new ofMidiModule());
+  
   ofGLFWWindowSettings settings;
   
   settings.setSize(920, 940);
@@ -26,14 +27,31 @@ int main( ){
   shared_ptr<ofSoundModule> SoundModule(new ofSoundModule);
   ofRunApp(ofSoundWindow, SoundModule);
   
+  settings.setSize(920, 240);
+  settings.setPosition(glm::vec2(20,20));
+  settings.resizable = false;
+  shared_ptr<ofAppBaseWindow> ofColorWindow = ofCreateWindow(settings);
+  shared_ptr<ofColorModule> ColorModule(new ofColorModule);
+  ofRunApp(ofColorWindow, ColorModule);
+  
   settings.setSize(700, 500);
-//  settings.windowMode = OF_FULLSCREEN;
   settings.setPosition(glm::vec2(960,480));
   shared_ptr<ofAppBaseWindow> ofAppWindow = ofCreateWindow(settings);
   shared_ptr<ofApp> MainApp(new ofApp);
   MainApp->midi = MidiModule;
   MainApp->sound = SoundModule;
+  MainApp->color = ColorModule;
   ofRunApp(ofAppWindow, MainApp);
+  
+  if(false) {
+    settings.windowMode = OF_FULLSCREEN;
+    shared_ptr<ofAppBaseWindow> ofFullAppWindow = ofCreateWindow(settings);
+    shared_ptr<ofApp> FullApp(new ofApp);
+    FullApp->midi = MidiModule;
+    FullApp->sound = SoundModule;
+    FullApp->color = ColorModule;
+    ofRunApp(ofFullAppWindow, FullApp);
+  }
   
   ofRunMainLoop();
 }

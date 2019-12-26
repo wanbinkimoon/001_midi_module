@@ -10,6 +10,7 @@
 #include "ofMain.h"
 #include "ofMidiModule.h"
 #include "ofSoundModule.h"
+#include "ofColorModule.h"
 
 class ofApp : public ofBaseApp{
   
@@ -33,5 +34,6 @@ public:
   
   shared_ptr<ofMidiModule> midi;
   shared_ptr<ofSoundModule> sound;
-  
+  shared_ptr<ofColorModule> color;
+  bool FULLSCREEN;
 };
