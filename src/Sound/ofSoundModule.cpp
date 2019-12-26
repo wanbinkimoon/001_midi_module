@@ -11,11 +11,28 @@ void ofSoundModule::setup(){
   ofSetWindowTitle("Sound Analysis LAB");
   int sampleRate = 44100;
   int bufferSize = 512;
-  int channels = 1;
-
-  //setup ofxAudioAnalyzer with the SAME PARAMETERS
-  audioAnalyzer.setup(sampleRate, bufferSize, channels);
+  int outChannels = 0;
+  int inChannels = 2;
   
+  soundStream.setup(this, outChannels, inChannels, sampleRate, bufferSize, 3);
+  //setup ofxAudioAnalyzer with the SAME PARAMETERS
+  audioAnalyzer.setup(sampleRate, bufferSize, inChannels);
+  
+  audioPanelONE = gui.addPanel("AUDIO IMPACT");
+  audioPanelONE->loadTheme("theme_three.json", true);
+  audioPanelONE->setPosition(ofPoint(20,20));
+  audioContONE = audioPanelONE->addContainer("", ofJson({{"direction", "horizontal"}}));
+  audioContONE->add(smooth.set("smoothing", .5, 0, 1), ofJson({{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}}));
+  audioContONE->add(audioAmp.set("ampliphier", 2200.0, 0.0, 5000.0), ofJson({{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}}));
+  audioContONE->add(audioIndex.set("index", .05, 0, .1), ofJson({{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}}));
+  audioContONE->add(audioIndexStep.set("step index", .025, 0, .1), ofJson({{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}}));
+  
+  audioPanelTWO = gui.addPanel("AUDIO IMPACT");
+  audioPanelTWO->loadTheme("theme_three.json", true);
+  audioPanelTWO->setPosition(audioPanelONE->getShape().getTopRight() + ofPoint(20,0));
+  audioContTWO = audioPanelTWO->addContainer("", ofJson({{"direction", "vertical"}}));
+  audioContTWO->add(centroid.set("centroid", 0, -1, 1), ofJson({{"width", SLIDER_WIDTH_H}, {"height", SLIDER_HEIGHT_H}}));
+  audioContTWO->add<ofxGuiValuePlotter>(power.set("power", 0.0, 0.0, 1.0), ofJson({{"precision", 2}, {"width", SLIDER_WIDTH_H}, {"height", SLIDER_HEIGHT_H}}));
   
   ofBackground(10);
 }
@@ -32,14 +49,20 @@ void ofSoundModule::update(){
   
   centroid = audioAnalyzer.getValue(CENTROID, 0, smooth, TRUE);
   bands = audioAnalyzer.getValues(MEL_BANDS, 0, smooth);
-
+  power   = audioAnalyzer.getValue(POWER, 0, smooth);
+  
   BAND_NUMB = bands.size();
   BAND_WIDTH = (GRAPH_WIDTH / BAND_NUMB) - BAND_GAP;
   
   for (unsigned int i = 0; i < BAND_NUMB; i++){
     bands[i] = ofMap(bands[i], DB_MIN, DB_MAX, 0.0, 1.0, true);
+    bands[i] = (bands[i] * audioAmp) * audioIndexAmp;
+    bands[i] = ofMap(bands[i], 0.0, audioAmp * audioIndex, 0.0, 1.0, true);
+    audioIndexAmp += audioIndexStep;
   }
+  audioIndexAmp = audioIndex;
 }
+
 //   ----------------------------------------------------
 void ofSoundModule::draw(){
   ofBackground(10, 10, 10, 10);

@@ -20,15 +20,14 @@ public:
   void update();
   void draw();
   void exit();
-  float smooth = .5;
   float LEFT, RIGHT;
   vector<float> bands;
-  float centroid;
   
+  ofSoundStream soundStream;
   ofxAudioAnalyzer audioAnalyzer;
   
   int MARGIN = 20;
-  int GRAPH_HEIGHT = 200;
+  int GRAPH_HEIGHT = 180;
   int GRAPH_WIDTH  = ofGetWidth() - (MARGIN * 2);
   
   int CELL_NUMB = 8;
@@ -39,6 +38,12 @@ public:
   int BAND_NUMB;
   int BAND_GAP = 6;
   
+  float SLIDER_WIDTH = 60;
+  float SLIDER_HEIGHT = 120;
+  
+  float SLIDER_WIDTH_H = 220;
+  float SLIDER_HEIGHT_H = 40;
+  
   ofColor RED = ofColor(250, 80, 50);
   ofColor ORANGE = ofColor(250, 160, 30);
   ofColor YELLOW = ofColor(250, 200, 30);
@@ -48,7 +53,16 @@ public:
   ofxGui gui;
   ofxGuiPanel* audioPanelONE;
   ofxGuiContainer* audioContONE;
-//  ofxGuiContainer* knobsOneBottom;
+  ofParameter<float> smooth = .5;
+  ofParameter<float> audioAmp = 2200.0;
+  ofParameter<float> audioIndex = 0.05;
+  float audioIndexAmp = audioIndex;
+  ofParameter<float> audioIndexStep = 0.025;
+  
+  ofxGuiPanel* audioPanelTWO;
+  ofxGuiContainer* audioContTWO;
+  ofParameter<float> centroid;
+  ofParameter<float> power;
 };
 
 
