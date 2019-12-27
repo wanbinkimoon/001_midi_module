@@ -19,7 +19,7 @@ void ofSoundModule::setup(){
   audioAnalyzer.setup(sampleRate, bufferSize, inChannels);
   
   audioPanelONE = gui.addPanel("AUDIO IMPACT");
-  audioPanelONE->loadTheme("theme_three.json", true);
+  audioPanelONE->loadTheme("themes/three.json", true);
   audioPanelONE->setPosition(ofPoint(20,20));
   audioContONE = audioPanelONE->addContainer("", ofJson({{"direction", "horizontal"}}));
   audioContONE->add(smooth.set("smoothing", .5, 0, 1), ofJson({{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}}));
@@ -28,7 +28,7 @@ void ofSoundModule::setup(){
   audioContONE->add(audioIndexStep.set("step index", .025, 0, .1), ofJson({{"width", SLIDER_WIDTH}, {"height", SLIDER_HEIGHT}}));
   
   audioPanelTWO = gui.addPanel("AUDIO IMPACT");
-  audioPanelTWO->loadTheme("theme_three.json", true);
+  audioPanelTWO->loadTheme("themes/three.json", true);
   audioPanelTWO->setPosition(audioPanelONE->getShape().getTopRight() + ofPoint(20,0));
   audioContTWO = audioPanelTWO->addContainer("", ofJson({{"direction", "vertical"}}));
   audioContTWO->add(centroid.set("centroid", 0, -1, 1), ofJson({{"width", SLIDER_WIDTH_H}, {"height", SLIDER_HEIGHT_H}}));

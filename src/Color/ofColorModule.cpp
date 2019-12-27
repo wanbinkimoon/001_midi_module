@@ -10,7 +10,7 @@ void ofColorModule::setup(){
   ofSetWindowTitle("Color Palette PICKER");
   
   colorPanelONE = gui.addPanel("COLOR PALETTE");
-  colorPanelONE->loadTheme("theme_three.json", true);
+  colorPanelONE->loadTheme("themes/three.json", true);
   colorPanelONE->setPosition(ofPoint(20,10));
   colorContONE = colorPanelONE->addContainer("", ofJson({{"direction", "horizontal"}}));
   

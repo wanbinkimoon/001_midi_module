@@ -31,6 +31,7 @@ public:
   void dragEvent(ofDragInfo dragInfo);
   void gotMessage(ofMessage msg);
   
+  ofShader shader;
   
   shared_ptr<ofMidiModule> midi;
   shared_ptr<ofSoundModule> sound;

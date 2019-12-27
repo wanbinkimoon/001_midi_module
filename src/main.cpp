@@ -36,6 +36,7 @@ int main( ){
   
   settings.setSize(700, 500);
   settings.setPosition(glm::vec2(960,480));
+//  settings.setGLVersion(3,2);
   shared_ptr<ofAppBaseWindow> ofAppWindow = ofCreateWindow(settings);
   shared_ptr<ofApp> MainApp(new ofApp);
   MainApp->midi = MidiModule;
@@ -45,6 +46,7 @@ int main( ){
   
   if(false) {
     settings.windowMode = OF_FULLSCREEN;
+//    settings.setGLVersion(3,2);
     shared_ptr<ofAppBaseWindow> ofFullAppWindow = ofCreateWindow(settings);
     shared_ptr<ofApp> FullApp(new ofApp);
     FullApp->midi = MidiModule;

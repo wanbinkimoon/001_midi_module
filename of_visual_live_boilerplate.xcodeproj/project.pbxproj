@@ -41,6 +41,7 @@
 		9838867AAEE52FA55BD87361 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47B24F0DAB5089AFF017B4B9 /* ofxGuiGroup.cpp */; };
 		9869DDCA32E016053E717266 /* ofxGuiElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6B982CF51C82555FE23F39C4 /* ofxGuiElement.cpp */; };
 		9A2FBB7E23B44BDD00B39815 /* ofColorModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FBB7C23B44BDD00B39815 /* ofColorModule.cpp */; };
+		9AC3366523B588C8009CB5CC /* MidiLabelizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3366423B588C8009CB5CC /* MidiLabelizer.cpp */; };
 		9D72A0B4BAED5487D5CD7538 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1B275EC347E41C380E1179 /* OpenAL.framework */; };
 		9E85BC15C93B599CE554C525 /* ofxGuiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5C71C737C545D4162C66D81 /* ofxGuiToggle.cpp */; };
 		A3A63E527E683E62A75346FD /* ofxGuiSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A63BADE46AB51AB99E713C3A /* ofxGuiSliderGroup.cpp */; };
@@ -213,6 +214,7 @@
 		9A2FBB7D23B44BDD00B39815 /* ofColorModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofColorModule.h; sourceTree = "<group>"; };
 		9A3624BCB03EC00BA5F87493 /* Element.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Element.cpp; path = ../../addons/ofxGuiExtended/src/DOM/Element.cpp; sourceTree = SOURCE_ROOT; };
 		9A97A4BD23B3C6890069259D /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		9AC3366423B588C8009CB5CC /* MidiLabelizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MidiLabelizer.cpp; path = /Users/nicolabertelloni/Developer/of_v0.11.0_osx/apps/of_visual_live_boilerplate/src/Midi/MidiLabelizer.cpp; sourceTree = "<absolute>"; };
 		9D37636731E7627CBB5A54FE /* tnt_math_utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = tnt_math_utils.h; path = ../../addons/ofxAudioAnalyzer/libs/essentia/include/essentia/utils/tnt/tnt_math_utils.h; sourceTree = SOURCE_ROOT; };
 		9FB08E768B560777594B16BB /* ofxDOMFlexBoxLayout.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDOMFlexBoxLayout.h; path = ../../addons/ofxGuiExtended/src/view/ofxDOMFlexBoxLayout.h; sourceTree = SOURCE_ROOT; };
 		A63BADE46AB51AB99E713C3A /* ofxGuiSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxGuiSliderGroup.cpp; path = ../../addons/ofxGuiExtended/src/containers/ofxGuiSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
@@ -723,6 +725,7 @@
 			isa = PBXGroup;
 			children = (
 				57EB31DE3DB6C7327A38A914 /* ofMidiModule.cpp */,
+				9AC3366423B588C8009CB5CC /* MidiLabelizer.cpp */,
 				C2E81C5688129992A7AEA6B5 /* ofMidiModule.h */,
 			);
 			path = Midi;
@@ -1438,6 +1441,7 @@
 				D361A0938514A0D1AA84CDC5 /* ofxGuiLabel.cpp in Sources */,
 				63460C60DF9E6B9DBB68FE9C /* ofxGuiRangeSlider.cpp in Sources */,
 				44FE741AD0698DE1CE7D97BC /* ofxGuiSlider.cpp in Sources */,
+				9AC3366523B588C8009CB5CC /* MidiLabelizer.cpp in Sources */,
 				9E85BC15C93B599CE554C525 /* ofxGuiToggle.cpp in Sources */,
 				A3ACA7E4BD7B89820AF77A3C /* ofxGuiValuePlotter.cpp in Sources */,
 				5258CA8C212FF4D152770F31 /* ofxGuiZoomableGraphics.cpp in Sources */,

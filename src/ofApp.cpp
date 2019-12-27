@@ -2,8 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+//  shader.load("shader/shader");
   ofBackground(0);
-  ofSetCircleResolution(200);
 }
 
 //--------------------------------------------------------------
@@ -13,8 +13,13 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+//  shader.begin();
+//  shader.setUniform1f("u_time", ofGetElapsedTimef());
+//  shader.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
+  
   ofSetColor(color->palette[0]);
   ofDrawCircle(ofGetWidth()*0.5,ofGetHeight()*0.5, midi->knobsONE[0] + sound->centroid * ofGetWidth()*0.45);
+//  shader.end();
 }
 
 //--------------------------------------------------------------
