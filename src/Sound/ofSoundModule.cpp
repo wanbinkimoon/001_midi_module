@@ -8,6 +8,7 @@
 #include "ofSoundModule.h"
 
 void ofSoundModule::setup(){
+  ofSetDataPathRoot("../Resources/data/");
   ofSetWindowTitle("Sound Analysis LAB");
   int sampleRate = 44100;
   int bufferSize = 512;

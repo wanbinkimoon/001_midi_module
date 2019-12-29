@@ -2,6 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+  ofSetDataPathRoot("../Resources/data/");
+
 //  shader.load("shader/shader");
   ofBackground(0);
 }

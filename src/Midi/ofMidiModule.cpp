@@ -2,6 +2,8 @@
 
 //   ----------------------------------------------------
 void ofMidiModule::setup(){
+  ofSetDataPathRoot("../Resources/data/");
+
   ofSetWindowTitle("MIDI Mad Module");
   ofSetLogLevel(OF_LOG_VERBOSE);
   
