@@ -15,16 +15,13 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  ofSetColor(color->palette[0]);
-  ofDrawCircle(ofGetWidth()*0.25,ofGetHeight()*0.25, midi->knobsONE[0] + sound->centroid * ofGetWidth()*0.2);
-  
   shader.begin();
   shader.setUniform1f("u_time", ofGetElapsedTimef());
   shader.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
   shader.setUniform1f("u_sound", sound->centroid);
 
   ofSetColor(color->palette[0]);
-  ofDrawCircle(ofGetWidth()*0.75,ofGetHeight()*0.75, midi->knobsONE[0] + sound->centroid * ofGetWidth()*0.2);
+  ofDrawCircle(ofGetWidth()*0.5,ofGetHeight()*0.5, midi->knobsONE[0] + sound->centroid * ofGetWidth()*0.5);
   shader.end();
 }
 
